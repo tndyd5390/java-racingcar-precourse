@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.code.ErrorCode;
-import racingcar.exception.RacingException;
 
 @DisplayName("자동차 이름 객체 단위 테스트")
 class CarNameTest {
@@ -29,7 +28,7 @@ class CarNameTest {
         String longerThenFive = "123456";
 
         //when //then
-        assertThatThrownBy(() -> new CarName(longerThenFive)).isInstanceOf(RacingException.class)
+        assertThatThrownBy(() -> new CarName(longerThenFive)).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorCode.CAR_NAVE_OVER_MAX_LENGTH.getErrorMessage());
     }
 
@@ -56,7 +55,7 @@ class CarNameTest {
         String carName = null;
 
         //when //then
-        assertThatThrownBy(() -> new CarName(carName)).isInstanceOf(RacingException.class)
+        assertThatThrownBy(() -> new CarName(carName)).isInstanceOf(NullPointerException.class)
                 .hasMessageContaining(ErrorCode.CAR_NAME_NULL.getErrorMessage());
     }
 
@@ -68,7 +67,7 @@ class CarNameTest {
         String carName = "";
 
         //when//then
-        assertThatThrownBy(() -> new CarName(carName)).isInstanceOf(RacingException.class)
+        assertThatThrownBy(() -> new CarName(carName)).isInstanceOf(IllegalStateException.class)
                 .hasMessageContaining(ErrorCode.CAR_NAME_IS_EMPTY.getErrorMessage());
     }
 }

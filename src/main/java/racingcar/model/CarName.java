@@ -3,7 +3,6 @@ package racingcar.model;
 import java.util.Objects;
 import racingcar.code.CarValueRange;
 import racingcar.code.ErrorCode;
-import racingcar.exception.RacingException;
 
 public class CarName {
     private final String carName;
@@ -19,13 +18,13 @@ public class CarName {
 
     private void validateCarName(String carName) {
         if (isNull(carName)) {
-            throw new RacingException(ErrorCode.CAR_NAME_NULL);
+            throw new NullPointerException(ErrorCode.CAR_NAME_NULL.getErrorMessage());
         }
         if (isLongerThanFive(carName)) {
-            throw new RacingException(ErrorCode.CAR_NAVE_OVER_MAX_LENGTH);
+            throw new IllegalArgumentException(ErrorCode.CAR_NAVE_OVER_MAX_LENGTH.getErrorMessage());
         }
         if (isEmpty(carName)) {
-            throw new RacingException(ErrorCode.CAR_NAME_IS_EMPTY);
+            throw new IllegalStateException(ErrorCode.CAR_NAME_IS_EMPTY.getErrorMessage());
         }
     }
 
