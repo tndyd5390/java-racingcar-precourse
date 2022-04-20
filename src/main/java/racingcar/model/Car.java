@@ -20,7 +20,7 @@ public class Car {
     }
 
     public void moveOrStop() {
-        int moveNumber = Randoms.pickNumberInRange(CarValueRange.MAX_NUMBER_RANGE.getCarValueRange(),
+        int moveNumber = Randoms.pickNumberInRange(CarValueRange.MIN_NUMBER_RANGE.getCarValueRange(),
                 CarValueRange.MAX_NUMBER_RANGE.getCarValueRange());
         if (isMoveNumber(moveNumber)) {
             moveForward();
