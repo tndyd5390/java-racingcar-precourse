@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.code.CarValueRange;
+
 public class Car {
     private static final int INITAL_CAR_POSITION = 0;
     private CarName carName;
@@ -17,7 +20,19 @@ public class Car {
         return this.position;
     }
 
-    public void moveForward() {
+    public void moveOrStop() {
+        int moveNumber = Randoms.pickNumberInRange(CarValueRange.MAX_NUMBER_RANGE.getCarValueRange(),
+                CarValueRange.MAX_NUMBER_RANGE.getCarValueRange());
+        if (isMoveNumber(moveNumber)) {
+            moveForward();
+        }
+    }
+
+    private boolean isMoveNumber(int number) {
+        return number >= CarValueRange.CAR_MOVING_VALUE.getCarValueRange();
+    }
+
+    private void moveForward() {
         this.position++;
     }
 }
