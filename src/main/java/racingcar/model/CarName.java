@@ -1,11 +1,11 @@
 package racingcar.model;
 
 import java.util.Objects;
+import racingcar.code.CarValueRange;
 import racingcar.code.ErrorCode;
 import racingcar.exception.RacingException;
 
 public class CarName {
-    private final int MAX_CAR_NAME_LENGTH = 5;
     private final String carName;
 
     public CarName(final String carName) {
@@ -30,7 +30,7 @@ public class CarName {
     }
 
     private boolean isLongerThanFive(String carName) {
-        return carName.length() > MAX_CAR_NAME_LENGTH;
+        return carName.length() > CarValueRange.MAX_CAR_NAME_LENGTH.getCarValueRange();
     }
 
     private boolean isNull(String carName) {

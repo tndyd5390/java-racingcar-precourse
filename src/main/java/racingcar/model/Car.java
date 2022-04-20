@@ -4,9 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.code.CarValueRange;
 
 public class Car {
-    private static final int INITAL_CAR_POSITION = 0;
     private CarName carName;
-    private int position = INITAL_CAR_POSITION;
+    private int position = CarValueRange.INITIAL_CAR_POSITION.getCarValueRange();
 
     public Car(String carName) {
         this.carName = new CarName(carName);
