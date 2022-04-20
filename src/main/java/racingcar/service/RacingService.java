@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.StringJoiner;
 import racingcar.code.ErrorCode;
 import racingcar.model.Car;
 import racingcar.model.Cars;
@@ -40,7 +41,7 @@ public class RacingService {
         }
     }
 
-    private String getRacingResultStr(Car car) {
+    private static String getRacingResultStr(Car car) {
         String racingResultStr = car.getCarName() + CAR_POSITION_RESULT_MIDDLE;
         for (int i = 0; i < car.getPosition(); i++) {
             racingResultStr += DASH;
@@ -48,5 +49,16 @@ public class RacingService {
         return racingResultStr;
     }
 
+    public void getGameWinner(Cars cars) {
+        OutputView.printGameWinner(generateWinnerStr(cars));
+    }
+
+    private String generateWinnerStr(Cars cars) {
+        StringJoiner stringJoiner = new StringJoiner(",");
+        for (Car maxPositionCar : cars.getMaxPositionCars()) {
+            stringJoiner.add(maxPositionCar.getCarName());
+        }
+        return stringJoiner.toString();
+    }
 
 }
