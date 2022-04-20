@@ -26,6 +26,20 @@ class CarsTest {
         assertThat(cars).isInstanceOf(Cars.class);
     }
 
+    @DisplayName("일급객체 멤버 변수 테스트")
+    @Test
+    void getCarsTest() {
+
+        //given
+        Cars cars = Cars.from("name1,name2,name3");
+
+        //when
+        List<Car> carList = cars.getCars();
+
+        //then
+        assertThat(carList).hasSize(3);
+    }
+
     @DisplayName("자동차 전진 및 멈춤 후 우승자 반환 테스트")
     @ParameterizedTest
     @ValueSource(ints = {5, 6})

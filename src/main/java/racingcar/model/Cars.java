@@ -24,6 +24,10 @@ public class Cars {
         return cars;
     }
 
+    public List<Car> getCars() {
+        return this.cars;
+    }
+
     public void moveOrStopCars() {
         for (Car car : cars) {
             car.moveOrStop();
