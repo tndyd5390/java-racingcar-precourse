@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.code.ErrorCode;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,5 +18,13 @@ public class RacingService {
         }
     }
 
+    public int getGameRounds() {
+        try {
+            return Integer.parseInt(InputView.inputGameRounds());
+        } catch (NumberFormatException e) {
+            OutputView.printError(ErrorCode.IS_NOT_NUMBERIC.getErrorMessage());
+            return getGameRounds();
+        }
+    }
 
 }
