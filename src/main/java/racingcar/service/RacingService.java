@@ -42,11 +42,12 @@ public class RacingService {
     }
 
     private static String getRacingResultStr(Car car) {
-        String racingResultStr = car.getCarName() + CAR_POSITION_RESULT_MIDDLE;
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(car.getCarName() + CAR_POSITION_RESULT_MIDDLE);
         for (int i = 0; i < car.getPosition(); i++) {
-            racingResultStr += DASH;
+            stringBuffer.append(DASH);
         }
-        return racingResultStr;
+        return stringBuffer.toString();
     }
 
     public void getGameWinner(Cars cars) {
