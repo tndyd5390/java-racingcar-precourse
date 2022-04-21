@@ -67,7 +67,7 @@ class CarNameTest {
         String carName = "";
 
         //when//then
-        assertThatThrownBy(() -> new CarName(carName)).isInstanceOf(IllegalStateException.class)
+        assertThatThrownBy(() -> new CarName(carName)).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorCode.CAR_NAME_IS_EMPTY.getErrorMessage());
     }
 }

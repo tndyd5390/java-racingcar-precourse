@@ -24,7 +24,7 @@ public class CarName {
             throw new IllegalArgumentException(ErrorCode.CAR_NAVE_OVER_MAX_LENGTH.getErrorMessage());
         }
         if (isEmpty(carName)) {
-            throw new IllegalStateException(ErrorCode.CAR_NAME_IS_EMPTY.getErrorMessage());
+            throw new IllegalArgumentException(ErrorCode.CAR_NAME_IS_EMPTY.getErrorMessage());
         }
     }
 
