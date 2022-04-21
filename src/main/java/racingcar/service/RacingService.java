@@ -17,9 +17,8 @@ public class RacingService {
     public Cars generateCarsFromUser() {
         try {
             String carNames = InputView.inputCarNames();
-            Cars cars = Cars.from(carNames);
-            return cars;
-        } catch (Exception e) {
+            return  Cars.from(carNames);
+        } catch (IllegalArgumentException e) {
             OutputView.printError(e.getMessage());
             return generateCarsFromUser();
         }
